@@ -1,0 +1,3 @@
+cc_config(
+    cxxflags='-std=gnu++11'
+)

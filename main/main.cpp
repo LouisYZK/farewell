@@ -1,4 +1,5 @@
-#include <stdc++.h>
+#include <bits/stdc++.h>
+#include "base.h"
 
 struct ListNode {
     int val;
@@ -140,7 +141,7 @@ int find_k_largest(std::vector<int>& vec, int k) {
 
 
 int main() {
-    std::cout << " Hello Bazel! " << std::endl;
+    std::cout << " Hello Blade! " << std::endl;
     std::vector<int> test_vec_int { 8, 7, 3, 1, 4, 0, 1, 2, 4 };
     std::vector<int> test_vec_int_sort { test_vec_int };
     // std::sort( test_vec_int_sort.begin(), test_vec_int_sort.end() );
@@ -152,4 +153,11 @@ int main() {
     
     std::cout << bin_search(test_vec_int_sort, 3) << std::endl;
     std::cout << bin_search_more(test_vec_int_sort, 4, 1) << std::endl;
+
+    MyPair<std::string, int> Astudent { "Jack", 20};
+    MyPair<std::string, int> Bstudent { "Rose", 21 };
+    std::cout << (Astudent < Bstudent) << std::endl;
+
+    Number a, b = a, c = b;
+    printNumber(a); printNumber(b); printNumber(c);
 }
