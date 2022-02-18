@@ -1,0 +1,33 @@
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Release)
+
+project(main LANGUAGES CXX)
+
+add_executable(main main.cpp)
+
+
+find_package(TBB REQUIRED)
+target_link_libraries(main PUBLIC TBB::tbb)
+
+set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "Turn off the fking test!")
+add_subdirectory(benchmark)
+target_link_libraries(main PUBLIC benchmark TBB::tbb)
+target_compile_options(main PUBLIC -ffast-math -march=native)
+
+add_executable(cache cache.cpp)
+target_link_libraries(cache PUBLIC TBB::tbb benchmark)
+
+add_executable(aos_soa aos_soa.cpp)
+target_link_libraries(aos_soa PUBLIC TBB::tbb benchmark)
+
+add_executable(prefetch prefetch.cpp)
+target_link_libraries(prefetch PUBLIC TBB::tbb benchmark)
+
+add_executable(manul_pool manul_pool.cpp)
+target_link_libraries(manul_pool PUBLIC TBB::tbb )
+
+add_executable(use_ndarray use_ndarray.cpp)
+target_link_libraries(use_ndarray PUBLIC TBB::tbb benchmark)
+target_compile_options(use_ndarray PUBLIC -ffast-math -march=native)
