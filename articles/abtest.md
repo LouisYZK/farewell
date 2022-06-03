@@ -85,7 +85,7 @@ $$
 
 贝叶斯统计围绕先验（prior）, 似然（likelyhood）,后验（posterior）和证据（观测，evidence）展开：
 $$
-\mathbb{P}(H|\bold{d}) = \frac{\mathbb{P}(H)\mathbb{P}(\bold{b}|H)}{\mathbb{P}(\bold{d})}
+\mathbb{P}(H|\bold{d}) = \frac{\mathbb{P}(H)\mathbb{P}(\bold{d}|H)}{\mathbb{P}(\bold{d})}
 $$
 其中，$\mathbb{P}(H|\bold{d})$是贝叶斯统计要得到的核心结论，参数的后验概率。这个参数H可以是我们对群体的参数估计，也可以是对参数的一些假设。$\mathbb{P}(\bold{d})$ 的计算是贝特斯统计的核心挑战，他只能用积分计算精确：$\mathbb{P}(\bold{d}) = \int \mathbb{P}(H|\bold{d})\mathbb{P}(H) dH$。
 
@@ -118,6 +118,7 @@ $$
     p \sim Beta(\alpha, \beta) = \frac{p^{\alpha -1} (1-p)^{\beta-1}}{B(\alpha, \beta)} \\
     B(\alpha, \beta) = \frac{\Gamma(\alpha) \Gamma(\beta)}{\Gamma(\alpha + \beta)} \\
   $$
+  
   计算后验能推导得：
   $$
     \mathbb{P}(p_A|\bold{d}_A) \sim Beta(\alpha + c_A, \beta + (N_A - c_A)) \\
@@ -168,6 +169,10 @@ $$
   ![](https://raw.githubusercontent.com/LouisYZK/picrepo/main/202206022018466.png)
 
   然后我们将95%-HPD与Effective size 做对比：
+![](https://raw.githubusercontent.com/LouisYZK/picrepo/main/202206030822271.png)
+
+  ![](https://raw.githubusercontent.com/LouisYZK/picrepo/main/202206030823349.png)
+
   ![](https://raw.githubusercontent.com/LouisYZK/picrepo/main/202206022019759.png)
 
   图（a）表示HPD在Effective size两侧，没有充分证据证明两组有差距；图（b）HPD完全在Effective size一侧，可以宣布某方胜利；图（c）HPD被Effective size完全包含，可以宣布两者无显著差别。
