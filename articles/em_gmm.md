@@ -306,9 +306,15 @@ if __name__ == '__main__':
 
 不能说很相似，只能说一模一样。
 
+完整代码[在此](https://github.com/LouisYZK/farewell/blob/main/articles/code/GMM.py)。
+
 ## 总结
 
-
+- 高斯混合模型建模过程为多个高斯分布线性相加；不同的高斯分布组成视为模型中的隐变量。
+- 高斯混合模型是生成模型：狄利克雷分布生成各类别的个数和概率；多项式分布生成各类别的样本数；多维高斯分布生成观测数据。
+- 高斯分布的似然函数中含有对隐变量后验概率的连加，无法求出梯度的解析解。
+- EM算法适合用于求解含有隐变量的生成模型，适合GMM的参数求解。对EM算法的核心公式求导$Q\left(\theta, \theta^{t}\right)=\sum_{i=1}^{N} \sum_{w_{i}} \log p\left(x_{i}, w_{i} \mid \theta\right) p\left(w_{i} \mid x_{i}, \theta^{t}\right)$ ，可以很直观地计算出各参数的梯度。
+- 我们用python手写了一个适配各种类别数目、多维度高斯分布的GMM算法，与sklearn实现的结果一致。
 
 ## Reference
 
